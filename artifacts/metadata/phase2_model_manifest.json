@@ -1,0 +1,19 @@
+{
+  "contract_version": "1",
+  "status": "trained",
+  "model_version": "phase2-2026-10-03T19:29:17.359260+00:00",
+  "model_family": "xgboost",
+  "model_name": "xgboost_scale_pos_weight",
+  "prediction_horizon": {
+    "name": "official_sepsis_label",
+    "description": "Hourly probability of the PhysioNet 2019 SepsisLabel. For a patient who meets the challenge definition, that label is 1 from t_sepsis - 6 hours onward."
+  },
+  "feature_spec_path": "artifacts/feature_definitions/feature_spec.json",
+  "preprocessor_path": "artifacts/preprocessors/xgboost_scale_pos_weight.json",
+  "model_path": "artifacts/models/xgboost_scale_pos_weight.json",
+  "calibration_path": "artifacts/calibration/serving_calibrator.json",
+  "metadata_path": "artifacts/metadata/serving_model.json",
+  "feature_schema_version": "features-be7550bb5e73abe1",
+  "decision_threshold": 0.03,
+  "notes": "FastAPI loads these paths. Feature order comes from serving_model.json. The frontend does not preprocess."
+}

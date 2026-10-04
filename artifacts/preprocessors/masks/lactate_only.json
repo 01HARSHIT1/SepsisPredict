@@ -1,0 +1,14 @@
+{
+  "kind": "native_missing",
+  "feature_names": [
+    "Lactate_raw",
+    "Lactate_missing",
+    "Lactate_last",
+    "Lactate_time_since_measurement",
+    "Lactate_change_from_previous_measurement",
+    "Lactate_change_direction",
+    "Lactate_measurements_in_24h",
+    "Lactate_mean_6h"
+  ],
+  "note": "Mask-specific feature order. Missing values stay missing."
+}

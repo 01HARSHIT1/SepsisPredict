@@ -1,0 +1,263 @@
+{
+  "cohort": {
+    "hospitals": {
+      "A": {
+        "hospital_system": "A",
+        "n_patients": 20336,
+        "n_hours": 790215,
+        "n_sepsis_patients": 1790,
+        "n_nonsepsis_patients": 18546,
+        "patient_sepsis_prevalence": 0.08802124311565697,
+        "n_positive_hours": 17136,
+        "n_negative_hours": 773079,
+        "hour_positive_prevalence": 0.02168523756192935,
+        "n_sepsis_patients_positive_from_first_hour": 203,
+        "n_sepsis_patients_with_observed_prewindow": 1587,
+        "n_sepsis_patients_onset_inside_record": 1788,
+        "n_patients_label_not_monotonic": 0,
+        "n_patients_iculos_not_incrementing_by_1": 0,
+        "n_patients_iculos_not_starting_at_1": 7497,
+        "hours_per_patient": {
+          "n_patients_in_histogram": 20336,
+          "n_patients_above_histogram": 0,
+          "min": 8.0,
+          "p25": 25.0,
+          "median": 39.0,
+          "p75": 47.0,
+          "p95": 58.0,
+          "max_in_histogram": 336,
+          "mean": 38.85793666404406
+        },
+        "patient_median_frac_vital_lab_cells_missing": 0.8002219755826859,
+        "patient_mean_n_vital_lab_never_observed": 10.00177025963808
+      },
+      "B": {
+        "hospital_system": "B",
+        "n_patients": 20000,
+        "n_hours": 761995,
+        "n_sepsis_patients": 1142,
+        "n_nonsepsis_patients": 18858,
+        "patient_sepsis_prevalence": 0.0571,
+        "n_positive_hours": 10780,
+        "n_negative_hours": 751215,
+        "hour_positive_prevalence": 0.014147074455869133,
+        "n_sepsis_patients_positive_from_first_hour": 223,
+        "n_sepsis_patients_with_observed_prewindow": 919,
+        "n_sepsis_patients_onset_inside_record": 1129,
+        "n_patients_label_not_monotonic": 0,
+        "n_patients_iculos_not_incrementing_by_1": 0,
+        "n_patients_iculos_not_starting_at_1": 1296,
+        "hours_per_patient": {
+          "n_patients_in_histogram": 20000,
+          "n_patients_above_histogram": 0,
+          "min": 8.0,
+          "p25": 23.0,
+          "median": 38.0,
+          "p75": 47.0,
+          "p95": 58.0,
+          "max_in_histogram": 336,
+          "mean": 38.09975
+        },
+        "patient_median_frac_vital_lab_cells_missing": 0.8071895424836601,
+        "patient_mean_n_vital_lab_never_observed": 13.72725
+      },
+      "pooled": {
+        "hospital_system": "pooled",
+        "n_patients": 40336,
+        "n_hours": 1552210,
+        "n_sepsis_patients": 2932,
+        "n_nonsepsis_patients": 37404,
+        "patient_sepsis_prevalence": 0.07268940896469656,
+        "n_positive_hours": 27916,
+        "n_negative_hours": 1524294,
+        "hour_positive_prevalence": 0.01798467990800214,
+        "n_sepsis_patients_positive_from_first_hour": 426,
+        "n_sepsis_patients_with_observed_prewindow": 2506,
+        "n_sepsis_patients_onset_inside_record": 2917,
+        "n_patients_label_not_monotonic": 0,
+        "n_patients_iculos_not_incrementing_by_1": 0,
+        "n_patients_iculos_not_starting_at_1": 8793,
+        "hours_per_patient": {
+          "n_patients_in_histogram": 40336,
+          "n_patients_above_histogram": 0,
+          "min": 8.0,
+          "p25": 24.0,
+          "median": 38.0,
+          "p75": 47.0,
+          "p95": 58.0,
+          "max_in_histogram": 336,
+          "mean": 38.48200119000396
+        },
+        "patient_median_frac_vital_lab_cells_missing": 0.8053475935828878,
+        "patient_mean_n_vital_lab_never_observed": 11.848993454978183
+      }
+    },
+    "patient_level_static": {
+      "A": {
+        "Age": {
+          "n_patients_with_constant_value": 20336,
+          "mean": 62.621612903226016,
+          "std": 16.236153523361608,
+          "min": 18.11,
+          "max": 89.0
+        },
+        "Gender": {
+          "n_patients_with_constant_value": 20336,
+          "mean": 0.5819236821400439,
+          "std": 0.4932549790247043,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit1": {
+          "n_patients_with_constant_value": 10814,
+          "mean": 0.49417421860551264,
+          "std": 0.49998917733336,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit2": {
+          "n_patients_with_constant_value": 10814,
+          "mean": 0.505825781394488,
+          "std": 0.4999891773333601,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "HospAdmTime": {
+          "n_patients_with_constant_value": 20335,
+          "mean": -48.678410622080214,
+          "std": 143.68331821607106,
+          "min": -3710.66,
+          "max": 23.99
+        }
+      },
+      "B": {
+        "Age": {
+          "n_patients_with_constant_value": 20000,
+          "mean": 60.6487999999999,
+          "std": 16.671810220333082,
+          "min": 14.0,
+          "max": 100.0
+        },
+        "Gender": {
+          "n_patients_with_constant_value": 20000,
+          "mean": 0.5366000000000014,
+          "std": 0.4986711076889075,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit1": {
+          "n_patients_with_constant_value": 13905,
+          "mean": 0.4978784609852593,
+          "std": 0.5000134790040958,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit2": {
+          "n_patients_with_constant_value": 13905,
+          "mean": 0.50212153901474,
+          "std": 0.5000134790040955,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "HospAdmTime": {
+          "n_patients_with_constant_value": 20000,
+          "mean": -55.072585999999866,
+          "std": 135.59569364264252,
+          "min": -5366.86,
+          "max": 0.0
+        }
+      },
+      "pooled": {
+        "Age": {
+          "n_patients_with_constant_value": 40336,
+          "mean": 61.643423244744206,
+          "std": 16.482945613817204,
+          "min": 14.0,
+          "max": 100.0
+        },
+        "Gender": {
+          "n_patients_with_constant_value": 40336,
+          "mean": 0.5594506148353818,
+          "std": 0.49645919757937423,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit1": {
+          "n_patients_with_constant_value": 24719,
+          "mean": 0.49625793923702594,
+          "std": 0.49999611048650766,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "Unit2": {
+          "n_patients_with_constant_value": 24719,
+          "mean": 0.5037420607629739,
+          "std": 0.4999961104865076,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "HospAdmTime": {
+          "n_patients_with_constant_value": 40335,
+          "mean": -51.84894508491381,
+          "std": 139.76645199303945,
+          "min": -5366.86,
+          "max": 23.99
+        }
+      }
+    },
+    "fio2_scale_counts": {
+      "A": {
+        "n_values_le_1": 112153,
+        "n_values_gt_1": 2
+      },
+      "B": {
+        "n_values_le_1": 17182,
+        "n_values_gt_1": 28
+      },
+      "pooled": {
+        "n_values_le_1": 129335,
+        "n_values_gt_1": 30
+      }
+    },
+    "trajectory_alignment": "Offsets are hours relative to the first SepsisLabel=1 row. That row is t_sepsis - 6 in the challenge definition, not the onset hour. Patients already positive at hour 1 are excluded because no pre-label hour was recorded.",
+    "reservoir": {
+      "size": 20000,
+      "seed": 2019,
+      "note": "Percentiles are reservoir estimates. Counts, means, standard deviations, minima, maxima, and missingness are exact."
+    },
+    "gap_definition": "A gap is the difference in row index between consecutive non-missing values. When ICULOS increments by 1 each row, that difference is hours between real measurements."
+  },
+  "n_read_errors": 0,
+  "split": {
+    "seed": 2019,
+    "fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "stratification": [
+      "hospital_system",
+      "sepsis_patient"
+    ],
+    "n_patients": 40336,
+    "n_train": 28235,
+    "n_validation": 6051,
+    "n_test": 6050,
+    "overlap_patient_count": 0
+  },
+  "leakage_checks_passed": [
+    "observation_state_ignores_future_values",
+    "backward_mean_ignores_future_values",
+    "backward_mean_does_not_treat_nan_as_zero",
+    "hour_delta_does_not_invent_a_value_for_a_missing_hour",
+    "backward_slope_ignores_future_values",
+    "time_since_measurement_is_nan_before_any_observation"
+  ],
+  "utility_published_example": 3.388888888888889,
+  "figures": [
+    "missingness_by_variable.png",
+    "median_hours_between_measurements.png",
+    "icu_hours_per_patient.png",
+    "mean_hr_map_before_first_positive_label.png"
+  ]
+}

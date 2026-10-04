@@ -1,0 +1,17 @@
+{
+  "seed": 2019,
+  "fractions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "stratification": [
+    "hospital_system",
+    "sepsis_patient"
+  ],
+  "n_patients": 40336,
+  "n_train": 28235,
+  "n_validation": 6051,
+  "n_test": 6050,
+  "overlap_patient_count": 0
+}

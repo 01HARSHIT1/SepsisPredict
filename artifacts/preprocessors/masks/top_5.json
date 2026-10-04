@@ -1,0 +1,26 @@
+{
+  "kind": "native_missing",
+  "feature_names": [
+    "HR_raw",
+    "HR_missing",
+    "HR_last",
+    "HR_time_since_measurement",
+    "HR_delta_1h",
+    "HR_delta_3h",
+    "HR_mean_3h",
+    "HR_mean_6h",
+    "HR_median_6h",
+    "HR_min_6h",
+    "HR_max_6h",
+    "HR_std_6h",
+    "HR_slope_6h",
+    "Age_value",
+    "Age_missing",
+    "Gender_value",
+    "Gender_missing",
+    "HospAdmTime_value",
+    "HospAdmTime_missing",
+    "ICULOS"
+  ],
+  "note": "Mask-specific feature order. Missing values stay missing."
+}

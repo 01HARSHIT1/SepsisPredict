@@ -1,0 +1,1615 @@
+{
+  "contract_version": "1",
+  "status": "feature_definition_with_trained_model",
+  "model_version": "phase2-2026-10-03T19:29:17.359260+00:00",
+  "prediction_horizon": {
+    "name": "official_sepsis_label",
+    "description": "Hourly probability of the PhysioNet 2019 SepsisLabel. For a patient who meets the challenge definition, that label is 1 from t_sepsis - 6 hours onward."
+  },
+  "data_total": 40,
+  "input_variables": [
+    "HR",
+    "O2Sat",
+    "Temp",
+    "SBP",
+    "MAP",
+    "DBP",
+    "Resp",
+    "EtCO2",
+    "BaseExcess",
+    "HCO3",
+    "FiO2",
+    "pH",
+    "PaCO2",
+    "SaO2",
+    "AST",
+    "BUN",
+    "Alkalinephos",
+    "Calcium",
+    "Chloride",
+    "Creatinine",
+    "Bilirubin_direct",
+    "Glucose",
+    "Lactate",
+    "Magnesium",
+    "Phosphate",
+    "Potassium",
+    "Bilirubin_total",
+    "TroponinI",
+    "Hct",
+    "Hgb",
+    "PTT",
+    "WBC",
+    "Fibrinogen",
+    "Platelets",
+    "Age",
+    "Gender",
+    "Unit1",
+    "Unit2",
+    "HospAdmTime",
+    "ICULOS"
+  ],
+  "rejected_inputs": [
+    "SepsisLabel"
+  ],
+  "missing_value_policy": "Omitted keys and null are missing. Numeric 0 is a measured zero. NaN is never written as 0.",
+  "data_sufficiency_policy": null,
+  "features": [
+    {
+      "name": "HR_raw",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_missing",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_last",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_time_since_measurement",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_delta_1h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_delta_3h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_mean_3h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_mean_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_median_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_min_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_max_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_std_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "HR_slope_6h",
+      "variable": "HR",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_raw",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_missing",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_last",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_time_since_measurement",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_delta_1h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_delta_3h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_mean_3h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_mean_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_median_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_min_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_max_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_std_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "O2Sat_slope_6h",
+      "variable": "O2Sat",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Temp_raw",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_missing",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_last",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_time_since_measurement",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_change_from_previous_measurement",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_change_direction",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_measurements_in_24h",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Temp_mean_6h",
+      "variable": "Temp",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SBP_raw",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_missing",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_last",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_time_since_measurement",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_delta_1h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_delta_3h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_mean_3h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_mean_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_median_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_min_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_max_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_std_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "SBP_slope_6h",
+      "variable": "SBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_raw",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_missing",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_last",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_time_since_measurement",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_delta_1h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_delta_3h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_mean_3h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_mean_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_median_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_min_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_max_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_std_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "MAP_slope_6h",
+      "variable": "MAP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_raw",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_missing",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_last",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_time_since_measurement",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_delta_1h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_delta_3h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_mean_3h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_mean_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_median_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_min_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_max_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_std_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "DBP_slope_6h",
+      "variable": "DBP",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_raw",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_missing",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_last",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_time_since_measurement",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_delta_1h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_delta_3h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_mean_3h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_mean_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_median_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_min_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_max_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_std_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "Resp_slope_6h",
+      "variable": "Resp",
+      "empirical_class": "near_hourly"
+    },
+    {
+      "name": "EtCO2_raw",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_missing",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_last",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_time_since_measurement",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_change_from_previous_measurement",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_change_direction",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_measurements_in_24h",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "EtCO2_mean_6h",
+      "variable": "EtCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_raw",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_missing",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_last",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_time_since_measurement",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_change_from_previous_measurement",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_change_direction",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_measurements_in_24h",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BaseExcess_mean_6h",
+      "variable": "BaseExcess",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_raw",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_missing",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_last",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_time_since_measurement",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_change_from_previous_measurement",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_change_direction",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_measurements_in_24h",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "HCO3_mean_6h",
+      "variable": "HCO3",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_raw",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_missing",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_last",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_time_since_measurement",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_change_from_previous_measurement",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_change_direction",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_measurements_in_24h",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "FiO2_mean_6h",
+      "variable": "FiO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_raw",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_missing",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_last",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_time_since_measurement",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_change_from_previous_measurement",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_change_direction",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_measurements_in_24h",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "pH_mean_6h",
+      "variable": "pH",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_raw",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_missing",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_last",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_time_since_measurement",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_change_from_previous_measurement",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_change_direction",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_measurements_in_24h",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PaCO2_mean_6h",
+      "variable": "PaCO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_raw",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_missing",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_last",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_time_since_measurement",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_change_from_previous_measurement",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_change_direction",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_measurements_in_24h",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "SaO2_mean_6h",
+      "variable": "SaO2",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_raw",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_missing",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_last",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_time_since_measurement",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_change_from_previous_measurement",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_change_direction",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_measurements_in_24h",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "AST_mean_6h",
+      "variable": "AST",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_raw",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_missing",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_last",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_time_since_measurement",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_change_from_previous_measurement",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_change_direction",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_measurements_in_24h",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "BUN_mean_6h",
+      "variable": "BUN",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_raw",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_missing",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_last",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_time_since_measurement",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_change_from_previous_measurement",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_change_direction",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_measurements_in_24h",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Alkalinephos_mean_6h",
+      "variable": "Alkalinephos",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_raw",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_missing",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_last",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_time_since_measurement",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_change_from_previous_measurement",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_change_direction",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_measurements_in_24h",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Calcium_mean_6h",
+      "variable": "Calcium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_raw",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_missing",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_last",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_time_since_measurement",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_change_from_previous_measurement",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_change_direction",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_measurements_in_24h",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Chloride_mean_6h",
+      "variable": "Chloride",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_raw",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_missing",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_last",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_time_since_measurement",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_change_from_previous_measurement",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_change_direction",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_measurements_in_24h",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Creatinine_mean_6h",
+      "variable": "Creatinine",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_raw",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_missing",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_last",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_time_since_measurement",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_change_from_previous_measurement",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_change_direction",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_measurements_in_24h",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_direct_mean_6h",
+      "variable": "Bilirubin_direct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_raw",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_missing",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_last",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_time_since_measurement",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_change_from_previous_measurement",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_change_direction",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_measurements_in_24h",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Glucose_mean_6h",
+      "variable": "Glucose",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_raw",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_missing",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_last",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_time_since_measurement",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_change_from_previous_measurement",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_change_direction",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_measurements_in_24h",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Lactate_mean_6h",
+      "variable": "Lactate",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_raw",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_missing",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_last",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_time_since_measurement",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_change_from_previous_measurement",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_change_direction",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_measurements_in_24h",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Magnesium_mean_6h",
+      "variable": "Magnesium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Phosphate_raw",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_missing",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_last",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_time_since_measurement",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_change_from_previous_measurement",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_change_direction",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Phosphate_measurements_in_24h",
+      "variable": "Phosphate",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Potassium_raw",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_missing",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_last",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_time_since_measurement",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_change_from_previous_measurement",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_change_direction",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_measurements_in_24h",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Potassium_mean_6h",
+      "variable": "Potassium",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Bilirubin_total_raw",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_missing",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_last",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_time_since_measurement",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_change_from_previous_measurement",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_change_direction",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "Bilirubin_total_measurements_in_24h",
+      "variable": "Bilirubin_total",
+      "empirical_class": "sparse"
+    },
+    {
+      "name": "TroponinI_raw",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_missing",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_last",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_time_since_measurement",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_change_from_previous_measurement",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_change_direction",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_measurements_in_24h",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "TroponinI_mean_6h",
+      "variable": "TroponinI",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_raw",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_missing",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_last",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_time_since_measurement",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_change_from_previous_measurement",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_change_direction",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_measurements_in_24h",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hct_mean_6h",
+      "variable": "Hct",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_raw",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_missing",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_last",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_time_since_measurement",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_change_from_previous_measurement",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_change_direction",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_measurements_in_24h",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Hgb_mean_6h",
+      "variable": "Hgb",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_raw",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_missing",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_last",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_time_since_measurement",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_change_from_previous_measurement",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_change_direction",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_measurements_in_24h",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "PTT_mean_6h",
+      "variable": "PTT",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_raw",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_missing",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_last",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_time_since_measurement",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_change_from_previous_measurement",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_change_direction",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_measurements_in_24h",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "WBC_mean_6h",
+      "variable": "WBC",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_raw",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_missing",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_last",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_time_since_measurement",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_change_from_previous_measurement",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_change_direction",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_measurements_in_24h",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Fibrinogen_mean_6h",
+      "variable": "Fibrinogen",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_raw",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_missing",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_last",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_time_since_measurement",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_change_from_previous_measurement",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_change_direction",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_measurements_in_24h",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Platelets_mean_6h",
+      "variable": "Platelets",
+      "empirical_class": "intermittent"
+    },
+    {
+      "name": "Age_value",
+      "variable": "Age",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Age_missing",
+      "variable": "Age",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Gender_value",
+      "variable": "Gender",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Gender_missing",
+      "variable": "Gender",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Unit1_value",
+      "variable": "Unit1",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Unit1_missing",
+      "variable": "Unit1",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Unit2_value",
+      "variable": "Unit2",
+      "empirical_class": "static"
+    },
+    {
+      "name": "Unit2_missing",
+      "variable": "Unit2",
+      "empirical_class": "static"
+    },
+    {
+      "name": "HospAdmTime_value",
+      "variable": "HospAdmTime",
+      "empirical_class": "static"
+    },
+    {
+      "name": "HospAdmTime_missing",
+      "variable": "HospAdmTime",
+      "empirical_class": "static"
+    },
+    {
+      "name": "ICULOS",
+      "variable": "ICULOS",
+      "empirical_class": "time_context"
+    }
+  ],
+  "feature_schema_version": "features-be7550bb5e73abe1"
+}

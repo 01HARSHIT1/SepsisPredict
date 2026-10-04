@@ -1,0 +1,13 @@
+split,hospital_system,sepsis_patient,n_patients
+test,A,0,2782
+test,A,1,268
+test,B,0,2829
+test,B,1,171
+train,A,0,12982
+train,A,1,1253
+train,B,0,13200
+train,B,1,800
+validation,A,0,2782
+validation,A,1,269
+validation,B,0,2829
+validation,B,1,171

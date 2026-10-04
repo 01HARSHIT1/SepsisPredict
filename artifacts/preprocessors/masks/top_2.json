@@ -1,0 +1,10 @@
+{
+  "kind": "native_missing",
+  "feature_names": [
+    "Age_value",
+    "Age_missing",
+    "Gender_value",
+    "Gender_missing"
+  ],
+  "note": "Mask-specific feature order. Missing values stay missing."
+}
